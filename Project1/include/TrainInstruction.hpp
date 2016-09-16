@@ -22,7 +22,7 @@ class TrainInstruction {
     struct TI {
       std::vector<Train> data;
       int TotalTruck;
-    }
+    };
   public:
 
     /* Before using this function
@@ -30,7 +30,7 @@ class TrainInstruction {
      * that you have check data format
      * by using bool verify()
      */
-    static TM getInstruction(std::vector<Train>);
+    static TI getInstruction(std::vector<Train>);
 
     /* check whether train data are legal */
     static bool verify(const std::vector<Train> &);
