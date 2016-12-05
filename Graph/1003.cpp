@@ -25,10 +25,8 @@ int main() {
                 nameMapIndexInGraph[source] = id++;
             if (nameMapIndexInGraph.find(target) == nameMapIndexInGraph.end())
                 nameMapIndexInGraph[target] = id++;
-            graph[nameMapIndexInGraph[source]][nameMapIndexInGraph[target]] = weight < graph[nameMapIndexInGraph[source]][nameMapIndexInGraph[target]] ?
-            weight : graph[nameMapIndexInGraph[source]][nameMapIndexInGraph[target]];
-            graph[nameMapIndexInGraph[target]][nameMapIndexInGraph[source]] = weight < graph[nameMapIndexInGraph[target]][nameMapIndexInGraph[source]] ?
-            weight : graph[nameMapIndexInGraph[target]][nameMapIndexInGraph[source]];
+            graph[nameMapIndexInGraph[source]][nameMapIndexInGraph[target]] = weight;
+            graph[nameMapIndexInGraph[target]][nameMapIndexInGraph[source]] = weight;
         }
         cin >> source >> target;
         if (source == target) {
