@@ -17,9 +17,12 @@ class road {
         // default constructor make whetherThisRoadExist false
         road();
         // make whetherThisRoadExist true
-        road(str::string source, std::string target, int length, bool availableForWalk, bool availableForCar);
+        road(std::string source, std::string target, int length, bool availableForWalk, bool availableForCar);
 
         int getLength() const;
+        
+        std::string getSource() const;
+        std::string getTarget() const;
 
         bool canWalk() const;
         bool canDriveCar() const;

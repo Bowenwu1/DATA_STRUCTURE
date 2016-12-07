@@ -10,6 +10,7 @@ class map {
     private:
         std::vector<std::vector<road> > adjaMatrix;
         std::map<std::string, int> destinationNameToIndex;
+        vector<destination> destinationInfo;
         bool whetherSuccessInitialize;
     public:
         // read from file

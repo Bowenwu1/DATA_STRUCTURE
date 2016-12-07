@@ -13,20 +13,25 @@ class path {
     public:
         path();
         // remember modify begin, end, totalLength
-        void appendLastRoad(const road &);
-        void appendFirstRoad(const road &);
+        bool appendLastRoad(const road &);
+        bool appendFirstRoad(const road &);
         // only can delete last road or first road
         void deleteLastRoad();
         void deleteFirstRoad();
 
         std::string getBegin() const;
-        std::string getEnd() const;\
+        std::string getEnd() const;
 
-        std::vector<string> getRoadName() const;
-        std::vector<string> getDestinationName() const;
+        std::vector<std::string> getRoadName() const;
+        std::vector<std::string> getDestinationName() const;
 
         /* if you have any extra request API
          * just contact me
          */
+        bool operator>(const path & other) const;
+        bool operator<(const path & other) const;
+        bool operator==(const path & other) const;
+        bool operator<=(const path & other) const;
+        bool operator>=(const path & other) const;
 };
 #endif
