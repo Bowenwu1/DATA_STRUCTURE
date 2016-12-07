@@ -22,7 +22,7 @@ class path {
         std::string getBegin() const;
         std::string getEnd() const;
 
-        std::vector<std::string> getRoadName() const;
+        std::vector<int> getRoadName() const;
         std::vector<std::string> getDestinationName() const;
 
         /* if you have any extra request API

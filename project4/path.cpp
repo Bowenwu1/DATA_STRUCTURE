@@ -67,7 +67,42 @@ void path::deleteFirstRoad() {
 std::string path::getBegin() const { return begin; }
 std::string path::getEnd() const { return end; }
 
-std::vector<std::string> getRoadName() const {
+std::vector<int> path::getRoadName() const {
+    std::vector<int> result;
+    for (auto iter = this.data.begin(); iter != this.data.end(); ++iter) {
+        result.push_back((*iter).getLength());
+    }
+    return result;
+}
+
+std::vector<std::string> path::getDestinationName() const {
     std::vector<std::string> result;
-    
+    for (auto iter = this.data.begin(); iter != this.data.end(); ++iter) {
+        result.push_back((*iter).getBegin());
+    }
+    return result;
+}
+
+bool path::operator>(const path & other) const {
+    return this.length > other.length;
+}
+
+
+bool path::operator<(const path & other) const {
+    return this.length < other.length;
+}
+
+
+bool path::operator==(const path & other) const {
+    return this.length == other.length;
+}
+
+
+bool path::operator<=(const path & other) const {
+    return this.length <= other.length;
+}
+
+
+bool path::operator>=(const path & other) const {
+    return this.length >= other.length;
 }
