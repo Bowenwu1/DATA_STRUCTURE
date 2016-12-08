@@ -82,3 +82,14 @@ path Map::getShortestPath(std::string begin, std::string end, bool canWalk, bool
         return temp[destinationNameToIndex[source]][destinationNameToIndex[target]];
     }
 }
+
+std::vector<destination> Map::getAllDestination() const {
+    return destinationInfo;
+}
+
+destination Map::queryDestination(std::string name) const {
+    if (destinationNameToIndex.find(name) != destinationNameToIndex.end()) {
+        return destinationInfo[destinationNameToIndex[name]];
+    }
+    throw 1;
+}

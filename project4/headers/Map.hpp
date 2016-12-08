@@ -18,5 +18,7 @@ class Map {
         Map(std::string destinationInfo, std::string roadInfo);
         bool checkWhetherSuccessInitialize() const;
         path getShortestPath(std::string begin, std::string end, bool canWalk, bool canDrive) const;
+        std::vector<destination> getAllDestination() const;
+        destination queryDestination(std::string name) const;
 };
 #endif
