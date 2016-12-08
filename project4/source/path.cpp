@@ -122,4 +122,20 @@ path path::operator+(const path & other) {
     return result;
 }
 
+path path::deleteInterval(std::string b) {
+    while(this->getEnd() != b)
+        this->deleteLastRoad();
+    return *this;
+}
+
 int path::getLength() const { return totalLength; }
+
+
+int path::calculateFrontLength(std::string middle) {
+    path temp;
+    for (auto iter = this->data.begin(); (*iter).getSource() != middle; ++iter) {
+        temp.appendLastRoad(*iter);
+    }
+    return temp.getLength();
+}
+
