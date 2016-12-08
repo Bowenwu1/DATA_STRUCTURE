@@ -14,6 +14,7 @@ Map::Map(std::string dPath, std::string rPath) {
         std::string name, description;
         fs >> name >> description;
         destination temp(name, description);
+        destinationInfo.push_back(temp);
         if (destinationNameToIndex.find(name) == destinationNameToIndex.end())
             destinationNameToIndex[name] = id++;
     }
