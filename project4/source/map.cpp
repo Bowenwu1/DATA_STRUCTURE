@@ -26,7 +26,7 @@ Map::Map(std::string dPath, std::string rPath) {
     }
     // input road information
     /* road file format :
-     * source target length whetherWalk(1 or 0) whetherDrive(1 or 0)
+     * source / target / length / whetherWalk(1 or 0) /  whetherDrive(1 or 0)
      * for now, we define a road is two-way
      */
      int size = destinationNameToIndex.size();

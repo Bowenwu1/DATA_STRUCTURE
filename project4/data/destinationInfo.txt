@@ -1,0 +1,10 @@
+SchoolOfSoftware theBestSchoolOfSYSU
+NorthDoor theNorthDoorOfEastCampus
+JunchengRestaurant theWorstRestaurantOfEastCampus
+PublicTeachingBuilding whereWeAttendClass
+Library iLoveStudy
+EastStadium iLoveSport
+WestStadium iLoveSport
+NorthLabortaryCenter whereWeDoLab
+SouthLabortaryCenter whereWeDoLab
+SchoolOfEngineering woresThanSchoolOfSoftware

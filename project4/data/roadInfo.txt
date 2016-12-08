@@ -1,0 +1,11 @@
+SchoolOfSoftware NorthDoor 1000 1 1
+NorthDoor JunchengRestaurant 202 0 1
+JunchengRestaurant Library 3001 1 1
+Library PublicTeachingBuilding 2000 1 0
+PublicTeachingBuilding EastStadium 3004 1 0
+EastStadium WestStadium 300 1 1
+WestStadium NorthLabortaryCenter 232 0 1
+SouthLabortaryCenter WestStadium 234 1 1
+SouthLabortaryCenter SchoolOfEngineering 435 1 0
+WestStadium Library 809 1 1
+WestStadium SouthLabortaryCenter 321 1 1
