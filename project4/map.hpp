@@ -6,6 +6,7 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <fstream>
 class map {
     private:
         std::vector<std::vector<road> > adjaMatrix;
