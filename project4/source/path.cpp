@@ -121,3 +121,5 @@ path path::operator+(const path & other) {
     result.end = other.end;
     return result;
 }
+
+int path::getLength() const { return totalLength; }

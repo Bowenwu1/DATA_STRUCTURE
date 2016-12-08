@@ -25,6 +25,7 @@ class path {
         std::vector<int> getRoadName() const;
         std::vector<std::string> getDestinationName() const;
 
+        int getLength() const;
         /* if you have any extra request API
          * just contact me
          */
