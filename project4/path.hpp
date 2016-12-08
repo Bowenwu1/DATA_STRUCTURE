@@ -33,5 +33,7 @@ class path {
         bool operator==(const path & other) const;
         bool operator<=(const path & other) const;
         bool operator>=(const path & other) const;
+
+        path operator+(const path & other);
 };
 #endif

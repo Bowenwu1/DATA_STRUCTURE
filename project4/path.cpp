@@ -106,3 +106,18 @@ bool path::operator<=(const path & other) const {
 bool path::operator>=(const path & other) const {
     return this.length >= other.length;
 }
+
+/* the order of calculation matters */
+path path::operator+(const path & other) {
+    // I don't ensure two path can link correctly here
+    // since it doesn't make any sense
+    path result;
+    result.totalLength = this.totalLength + other.totalLength;
+    for (auto iter = this.data.begin(); iter != this.data.end(); ++iter)
+        result.data.push_back(*iter);
+    for (auto iter = other.data.begin(); iter != other.data.end(); ++iter)
+        result.data.push_back(*iter);
+    result.begin = this.begin;
+    result.end = other.end;
+    return result;
+}

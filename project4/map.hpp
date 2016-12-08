@@ -17,6 +17,6 @@ class map {
         // read from file
         map(std::string destinationInfo, std::string roadInfo);
         bool checkWhetherSuccessInitialize() const;
-        path getShortestPath(std::string begin, std::string end, bool canWalk, bool canDrive);
+        path getShortestPath(std::string begin, std::string end, bool canWalk, bool canDrive) const;
 };
 #endif
