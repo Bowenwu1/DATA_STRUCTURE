@@ -11,7 +11,7 @@ bool path::appendLastRoad(const road & newRoad) {
         totalLength += newRoad.getLength();
         data.push_back(newRoad);
         return true;
-    } else if (newRoad.getSource() == this.getEnd()) {
+    } else if (newRoad.getSource() == this->getEnd()) {
         end = newRoad.getTarget();
         totalLength += newRoad.getLength();
         data.push_back(newRoad);
@@ -27,7 +27,7 @@ bool path::appendFirstRoad(const road & newRoad) {
         totalLength += newRoad.getLength();
         data.push_back(newRoad);
         return true;
-    } else if (newRoad.getTarget() == this.getBegin()) {
+    } else if (newRoad.getTarget() == this->getBegin()) {
         begin = newRoad.getSource();
         totalLength += newRoad.getLength();
         data.push_front(newRoad);
@@ -69,7 +69,7 @@ std::string path::getEnd() const { return end; }
 
 std::vector<int> path::getRoadName() const {
     std::vector<int> result;
-    for (auto iter = this.data.begin(); iter != this.data.end(); ++iter) {
+    for (auto iter = this->data.begin(); iter != this->data.end(); ++iter) {
         result.push_back((*iter).getLength());
     }
     return result;
@@ -77,34 +77,34 @@ std::vector<int> path::getRoadName() const {
 
 std::vector<std::string> path::getDestinationName() const {
     std::vector<std::string> result;
-    for (auto iter = this.data.begin(); iter != this.data.end(); ++iter) {
-        result.push_back((*iter).getBegin());
+    for (auto iter = this->data.begin(); iter != this->data.end(); ++iter) {
+        result.push_back((*iter).getSource());
     }
     return result;
 }
 
 bool path::operator>(const path & other) const {
-    return this.length > other.length;
+    return this->totalLength > other.totalLength;
 }
 
 
 bool path::operator<(const path & other) const {
-    return this.length < other.length;
+    return this->totalLength < other.totalLength;
 }
 
 
 bool path::operator==(const path & other) const {
-    return this.length == other.length;
+    return this->totalLength == other.totalLength;
 }
 
 
 bool path::operator<=(const path & other) const {
-    return this.length <= other.length;
+    return this->totalLength <= other.totalLength;
 }
 
 
 bool path::operator>=(const path & other) const {
-    return this.length >= other.length;
+    return this->totalLength >= other.totalLength;
 }
 
 /* the order of calculation matters */
@@ -112,12 +112,12 @@ path path::operator+(const path & other) {
     // I don't ensure two path can link correctly here
     // since it doesn't make any sense
     path result;
-    result.totalLength = this.totalLength + other.totalLength;
-    for (auto iter = this.data.begin(); iter != this.data.end(); ++iter)
+    result.totalLength = this->totalLength + other.totalLength;
+    for (auto iter = this->data.begin(); iter != this->data.end(); ++iter)
         result.data.push_back(*iter);
     for (auto iter = other.data.begin(); iter != other.data.end(); ++iter)
         result.data.push_back(*iter);
-    result.begin = this.begin;
+    result.begin = this->begin;
     result.end = other.end;
     return result;
 }

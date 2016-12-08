@@ -1,9 +1,9 @@
 #ifndef UI_HPP
 #define UI_HPP
-#include "map.hpp"
+#include "Map.hpp"
 class UI {
     private:
-        map _map;
+        Map _map;
     public:
         void startService();
 };

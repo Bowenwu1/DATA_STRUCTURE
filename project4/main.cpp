@@ -1,6 +1,6 @@
 #include "UI.hpp"
 
 int main() {
-    UI _ui;
-    _ui.startService();
+    // UI _ui;
+    // _ui.startService();
 }
