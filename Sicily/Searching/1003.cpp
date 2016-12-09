@@ -9,7 +9,11 @@ void swap(T & a, T & b) {
     a = b;
     b = c;
 }
-const int MAX = 100000010;
+const int MAX = 200000020;
+const int MOVE = 10000000;
+// this bug cost me long time to debug
+// I didn't consider that the number will be negative
+// !!!!!!!!!!!!!!!!!!!!
 bool whetherExisted[MAX];
 
 void insertToHeap(int* heap, int & currentSize, int elem, int maxSize) {
@@ -74,9 +78,9 @@ int main() {
     // mantain a maximum heap
     for (int i = 0; i < n; ++i) {
         scanf("%d", &temp);
-        if (whetherExisted[temp]) continue;
+        if (whetherExisted[temp + MOVE]) continue;
         // insertToHeap
-        whetherExisted[temp] = true;
+        whetherExisted[temp + MOVE] = true;
         insertToHeap(heap, heapSize, temp, k);
     }
     if (n)
