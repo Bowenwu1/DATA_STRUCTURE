@@ -40,10 +40,13 @@ int main() {
     k = getint();
     // int* heap = new int[k];
     int temp;
+    bool* pointertemp = whetherExisted;
+    pointertemp += MOVE;
     // mantain a maximum heap
     for (int i = 0; i < n; ++i) {
         temp = getint();
-        whetherExisted[temp + MOVE] = true;
+        *(pointertemp + temp) = true;
+        // whetherExisted[temp + MOVE] = true;
         // insertToHeap(heap, heapSize, temp, k);
     }
     // if (n)
