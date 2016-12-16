@@ -24,6 +24,8 @@ void hashTable::printTable() {
 
 bool hashTable::insert(std::string name, std::string number) {
     try {
+        int temp;
+        if (this->find(name, number, temp)) throw 1;
         int index = this->hash(name, number);
         if (data[index]) {
             Node* temp = data[index];
@@ -59,7 +61,7 @@ bool hashTable::deleteElement(std::string name, std::string number) {
     Node* second = first->next;
     // first one is the target element
     if (first->name == name && first->number == number) {
-        data[index]->next = first->next;
+        data[index] = first->next;
         first->next = NULL;
         delete first;
         return true;

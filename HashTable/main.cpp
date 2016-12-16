@@ -12,7 +12,8 @@ int main() {
              << "2   --insert" << endl
              << "3   --delete" << endl
              << "4   --print" << endl
-             << "5   --findElement" << endl;
+             << "5   --findElement" << endl
+             << "6   --quit" << endl;
         int op;
         cin >> op;
         switch(op) {
@@ -36,6 +37,7 @@ int main() {
                     cout << "please input name and number" << endl
                         << "~$[insert]";
                     string name, number;
+                    cin >> name >> number;
                     if (test.insert(name, number)) {
                         cout << "~$ success!" << endl;
                     } else {
@@ -48,6 +50,7 @@ int main() {
                     cout << "please input name and number" << endl
                         << "~$[delete]";
                     string name, number;
+                    cin >> name >> number;
                     if (test.deleteElement(name, number)) {
                         cout << "~$ success!" << endl;
                     } else {
@@ -68,6 +71,7 @@ int main() {
                         << "~$[find]";
                     string name, number;
                     int times;
+                    cin >> name >> number;
                     if (test.find(name, number, times)) {
                         cout << "~$ success! and cost " << times << " compare." << endl;
                     } else {
