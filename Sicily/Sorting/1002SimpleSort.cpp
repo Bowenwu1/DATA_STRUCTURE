@@ -32,15 +32,15 @@ int main() {
                 cin >> priority[i][0];
                 priority[i][1] = i;
             }
-            sort(priority.begin(), priority.end(), pcomp);
+            stable_sort(priority.begin(), priority.end(), pcomp);
             // for (int i = 0; i < m; ++i) cout << priority[i][0] << " " << priority[i][1] << endl;
             p.resize(m, 0);
             size = m;
             for (int i = 0; i < m; ++i)
                 p[i] = priority[i][1];
             vector<vector<int> > ttt = data;
-            prioritySort(ttt);
-            printResult(ttt);
+            prioritySort(data);
+            printResult(data);
             cout << endl;
         }
     }
@@ -53,7 +53,7 @@ bool whetherGreat(const vector<int> & a, const vector<int> & b) {
         else if (a[p[i]] < b[p[i]])
             return true;
     }
-    return true;
+    return false;
 }
 void prioritySort(vector<vector<int> > & data) {
     stable_sort(data.begin(), data.end(), whetherGreat);
