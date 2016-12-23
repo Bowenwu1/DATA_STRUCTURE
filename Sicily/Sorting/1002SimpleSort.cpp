@@ -3,6 +3,7 @@
 #include <algorithm>
 using namespace std;
 vector<int> p;
+int size = 0;
 void prioritySort(vector<vector<int> > & data);
 void printResult(const vector<vector<int> > & data);
 bool pcomp(const vector<int> & a, const vector<int> & b) {
@@ -34,24 +35,25 @@ int main() {
             sort(priority.begin(), priority.end(), pcomp);
             // for (int i = 0; i < m; ++i) cout << priority[i][0] << " " << priority[i][1] << endl;
             p.resize(m, 0);
+            size = m;
             for (int i = 0; i < m; ++i)
                 p[i] = priority[i][1];
             vector<vector<int> > ttt = data;
             prioritySort(ttt);
             printResult(ttt);
-            if (queryCase) cout << endl;
+            cout << endl;
         }
     }
 }
 bool whetherGreat(const vector<int> & a, const vector<int> & b) {
-    int m = p.size();
+    int m = size;
     for (int i = 0; i < m; ++i) {
         if (a[p[i]] > b[p[i]])
             return false;
         else if (a[p[i]] < b[p[i]])
             return true;
     }
-    return false;
+    return true;
 }
 void prioritySort(vector<vector<int> > & data) {
     stable_sort(data.begin(), data.end(), whetherGreat);
