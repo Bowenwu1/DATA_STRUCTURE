@@ -1,8 +1,13 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
-void prioritySort(vector<vector<int> > & data, vector<int> & p);
+vector<int> p;
+void prioritySort(vector<vector<int> > & data);
 void printResult(const vector<vector<int> > & data);
+bool pcomp(const vector<int> & a, const vector<int> & b) {
+    return  a[0] < b[0];
+}
 int main() {
     int T;
     cin >> T;
@@ -26,39 +31,30 @@ int main() {
                 cin >> priority[i][0];
                 priority[i][1] = i;
             }
-            for (int i = 0; i < m; ++i)
-                for (int j = i + 1; j < m; ++j) {
-                    if (priority[i][0] > priority[j][0])
-                        swap(priority[i], priority[j]);
-                }
-            vector<int> p(m);
+            sort(priority.begin(), priority.end(), pcomp);
+            // for (int i = 0; i < m; ++i) cout << priority[i][0] << " " << priority[i][1] << endl;
+            p.resize(m, 0);
             for (int i = 0; i < m; ++i)
                 p[i] = priority[i][1];
-            prioritySort(data, p);
-            printResult(data);
+            vector<vector<int> > ttt = data;
+            prioritySort(ttt);
+            printResult(ttt);
             if (queryCase) cout << endl;
-            vector<int> temp(m);
-            temp[0] = m;
-            prioritySort(data, temp);
         }
     }
 }
-bool whetherGreat(const vector<int> & a, const vector<int> & b, const vector<int> & p) {
+bool whetherGreat(const vector<int> & a, const vector<int> & b) {
     int m = p.size();
     for (int i = 0; i < m; ++i) {
         if (a[p[i]] > b[p[i]])
-            return true;
-        else if (a[p[i]] < b[p[i]])
             return false;
+        else if (a[p[i]] < b[p[i]])
+            return true;
     }
     return false;
 }
-void prioritySort(vector<vector<int> > & data, vector<int> & p) {
-    int size = data.size();
-    for (int i = 0; i < size; ++i)
-        for (int j = i + 1; j < size; ++j)
-            if (whetherGreat(data[i], data[j], p))
-                swap(data[i], data[j]);
+void prioritySort(vector<vector<int> > & data) {
+    stable_sort(data.begin(), data.end(), whetherGreat);
 }
 
 void printResult(const vector<vector<int> > & data) {
